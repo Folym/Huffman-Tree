@@ -196,7 +196,7 @@ int main()
 {
 	LencReg *LR;
 	LArv *LA;
-	char frase[200];
+	char frase[500];
 	strcpy(frase,"Amo como ama o amor. Nao conheco nenhuma outra razao para amar senao amar. Que queres que te diga, alem de que te amo, se o que quero dizer-te e que te amo?");
 	initLR(&LR);
 	initLA(&LA);
@@ -207,5 +207,4 @@ int main()
 	clrscr();
 	exibe(LA->no);
 	getch();
-	
 }
