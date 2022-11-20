@@ -89,15 +89,15 @@ void criandoFrase(LencReg**LR,Tree*no,char codgh[],char frase[])
 
 int main(void)
 {
-	char frase[200];
-	char codgh[101];
+	char frase[500];
+	char codgh[301];
 	FILE *arqb = fopen("huffman.dat","rb+");
 	FILE *arqt = fopen("huffman.txt","r+");
 	LArv *LA;
 	LencReg *LR;
 	initLA(&LA);
 	initLR(&LR);
-	fgets(codgh,100,arqt);
+	fgets(codgh,300,arqt);
 	criaListaReg(&LR,&arqb);
 	criaListaArv(LR,&LA);
 	criaArv(&LA);
