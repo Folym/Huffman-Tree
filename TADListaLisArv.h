@@ -61,6 +61,41 @@ void insereLA(LArv**LA,int simb,int frq)
 	novo->no = criaNo(simb,frq);
 }
 
+void insereArv(LArv**LA,LArv**auxP, LArv**antP, int simb, int frq)
+{
+	LArv *ant,*aux,*novo = (LArv*)malloc(sizeof(LArv));
+	novo->no = NULL;
+	novo -> prox = NULL;
+	if((*LA)==NULL)
+		*LA = novo;
+	else
+	{
+		ant = aux = *LA;
+		while(aux!=NULL&&aux->no->frq<=frq)
+		{
+			ant = aux;
+			aux = aux->prox;
+		}
+		if(aux==NULL)
+			ant->prox = novo;
+		else
+		{
+			if(aux==ant)
+			{
+				novo->prox = aux;
+				*LA = novo;
+			}
+			else
+			{
+				novo -> prox = aux;
+				ant -> prox = novo;
+			}
+		}
+	}
+	novo->no = criaNo(simb,frq);
+	novo->no->esq = (*antP)->no;
+	novo->no->dir = (*auxP)->no;
+}
 void exclusaoLA(LArv**LA,int simb)
 {
 	LArv *aux,*ant;
